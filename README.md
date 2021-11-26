@@ -8,8 +8,8 @@ Short version: objects go left when we rotate left
 ### Why would I care?
 
 This phenomenon has some surprising effects on the Earth's atmosphere. It influences weather on a large scale and
-therefore can be interesting for pilots, mariners and weather enthusiasts out there. Go check the (long
-version)[https://scijinks.gov/coriolis] for more!
+therefore can be interesting for pilots, mariners and weather enthusiasts out there. Go check the [long
+version](https://scijinks.gov/coriolis) for more!
 
 ## What is this project?
 
@@ -26,3 +26,7 @@ You can change the rotation speed and the throw strength to get an intuition for
 ## Build and Run
 
 Download latest Godot and import the project.
+
+## Screenshots
+
+![Screenshot](https://i.ibb.co/gTBQLgX/ebatxuita.gif)
