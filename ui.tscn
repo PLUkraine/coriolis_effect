@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ui.gd" type="Script" id=1]
+
+[node name="ui" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0.713726 )
+anchor_top = 0.818
+anchor_right = 0.24
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="speed" type="HBoxContainer" parent="background/VBoxContainer"]
+margin_top = 24.0
+margin_right = 245.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="background/VBoxContainer/speed"]
+margin_top = 1.0
+margin_right = 96.0
+margin_bottom = 15.0
+text = "Rotation Speed"
+
+[node name="HSlider" type="HSlider" parent="background/VBoxContainer/speed"]
+margin_left = 100.0
+margin_right = 245.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = -4.0
+max_value = 4.0
+step = 0.2
+value = -1.0
+
+[node name="strength" type="HBoxContainer" parent="background/VBoxContainer"]
+margin_top = 44.0
+margin_right = 245.0
+margin_bottom = 60.0
+
+[node name="Label" type="Label" parent="background/VBoxContainer/strength"]
+margin_top = 1.0
+margin_right = 53.0
+margin_bottom = 15.0
+text = "Strength"
+
+[node name="HSlider" type="HSlider" parent="background/VBoxContainer/strength"]
+margin_left = 57.0
+margin_right = 245.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = 5.0
+max_value = 40.0
+step = 0.5
+value = 9.0
+
+[node name="throw_button" type="Button" parent="background/VBoxContainer"]
+margin_top = 64.0
+margin_right = 245.0
+margin_bottom = 84.0
+text = "Throw Box"

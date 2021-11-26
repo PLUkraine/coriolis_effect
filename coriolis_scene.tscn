@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://cube.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://move_camera.gd" type="Script" id=2]
+[ext_resource path="res://coriolis_scene.gd" type="Script" id=3]
+[ext_resource path="res://ball.gd" type="Script" id=4]
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.660243, 0.66, 0.66 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.709804, 0.0941176, 0.0941176, 1 )
+
+[sub_resource type="BoxShape" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.239216, 0.239216, 0.239216, 1 )
+
+[node name="coriolis_scene" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="cube" type="RigidBody" parent="."]
+mode = 1
+
+[node name="CollisionShape" type="CollisionShape" parent="cube"]
+shape = SubResource( 4 )
+
+[node name="cube" type="MeshInstance" parent="cube"]
+transform = Transform( 0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 0, 0, 0 )
+material_override = SubResource( 2 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="ball" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.00106, 3.96295 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ball"]
+shape = SubResource( 4 )
+
+[node name="cube" type="MeshInstance" parent="ball"]
+transform = Transform( 0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 0, 0, 0 )
+material_override = SubResource( 2 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="white_plane" type="MeshInstance" parent="."]
+transform = Transform( 10, 0, 0, 0, 0.01, 0, 0, 0, 10, 0, -0.6987, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="gray_plane" type="StaticBody" parent="."]
+transform = Transform( 200, 0, 0, 0, -0.1, 0, 0, 0, 200, 0, -0.793816, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="gray_plane"]
+shape = SubResource( 3 )
+
+[node name="plane" type="MeshInstance" parent="gray_plane"]
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 1 )
+
+[node name="camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.830674, 0.55676, 0, -0.55676, 0.830674, 0, 3, 5 )
+script = ExtResource( 2 )
+strength = 9.0
+rotation_speed = -1.0
+ball = NodePath("../ball")
+
+[node name="light" type="DirectionalLight" parent="."]
+transform = Transform( 0.758681, 0.488964, -0.430485, 0.00753093, 0.654171, 0.756309, 0.651419, -0.577039, 0.492625, 0, 9.641, 0 )
+shadow_enabled = true
+shadow_bias = 1.0
